@@ -153,14 +153,21 @@ void tonal_noise(void)
 		temp = nco_out;
 
 		/* Sample L+R audio from the codec */
+		/* Sampling rate is 48 kHz*/
 		int i,j;
 		in_left = 0;
 		in_right = 0;
 		int samples = 0;
 		switch(step){
-			case 1: samples = 4167;
-			case 2: samples = 0;
-			case 3: samples = 16;
+			case 1: samples = 240; //play sound wave with frequency of 200 Hz
+			case 2: samples = 160; //play sound wave with frequency of 300 Hz
+			case 3: samples = 120; //play sound wave with frequency of 400 Hz
+			case 4: samples = 96; //play sound wave with frequency of 500 Hz
+			case 5: samples = 80 //play sound wave with frequency of 600 Hz
+			case 6: samples = 69; //play sound wave with frequency of 700 Hz
+			case 7: samples = 60; //play sound wave with frequency of 800 Hz
+			case 8: samples = 53; //play sound wave with frequency of 900 Hz
+			case 9: samples = 48; //play sound wave with frequency of 1 kHz
 		}
 
 
@@ -169,14 +176,14 @@ void tonal_noise(void)
 				Xil_Out32(I2S_DATA_TX_L_REG, in_left);
 				Xil_Out32(I2S_DATA_TX_R_REG, in_right);
 			}
-			in_left = 8388607;
-			in_right = 8388607;
+			in_left = 8388607; //set HIGH = 2^(23) - 1
+			in_right = 8388607; //set HIGH = 2^(23) - 1
 			for (j = 1; j < samples/2; j++){
 					Xil_Out32(I2S_DATA_TX_L_REG, in_left);
 					Xil_Out32(I2S_DATA_TX_R_REG, in_right);
 			}
-			in_left = 8388608;
-			in_right = 8388608;
+			in_left = 8388608; //set LOW = 2^23
+			in_right = 8388608; //set LOW = 2^23
 		}
 
 		/* Add scaled noise component to the L+R audio samples */
