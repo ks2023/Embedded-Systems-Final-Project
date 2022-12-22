@@ -163,7 +163,7 @@ void tonal_noise(void)
 			case 2: samples = 160; //play sound wave with frequency of 300 Hz
 			case 3: samples = 120; //play sound wave with frequency of 400 Hz
 			case 4: samples = 96; //play sound wave with frequency of 500 Hz
-			case 5: samples = 80 //play sound wave with frequency of 600 Hz
+			case 5: samples = 80; //play sound wave with frequency of 600 Hz
 			case 6: samples = 69; //play sound wave with frequency of 700 Hz
 			case 7: samples = 60; //play sound wave with frequency of 800 Hz
 			case 8: samples = 53; //play sound wave with frequency of 900 Hz
