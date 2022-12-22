@@ -158,7 +158,28 @@ void tonal_noise(void)
 		in_left = 0;
 		in_right = 0;
 		int samples = 0;
-		switch(step){
+		if (step == 1){
+			samples = 200;
+		} else if (step == 2){
+			samples = 400;
+		} else if (step == 3){
+			samples = 600;
+		} else if (step == 4){
+			samples = 800;
+		} else if (step == 5){
+			samples = 1000;
+		} else if (step == 6){
+			samples = 1200;
+		} else if (step == 7){
+			samples = 1400;
+		} else if (step == 8){
+			samples = 1600;
+		} else if (step == 9){
+			samples = 1800;
+		} else {
+			samples = 0;
+		}
+		/* switch(step){
 			case 1: samples = 240; //play sound wave with frequency of 200 Hz
 			case 2: samples = 160; //play sound wave with frequency of 300 Hz
 			case 3: samples = 120; //play sound wave with frequency of 400 Hz
@@ -169,6 +190,7 @@ void tonal_noise(void)
 			case 8: samples = 53; //play sound wave with frequency of 900 Hz
 			case 9: samples = 48; //play sound wave with frequency of 1 kHz
 		}
+		*/
 
 
 		for (i = 1; i < 10; i++){
